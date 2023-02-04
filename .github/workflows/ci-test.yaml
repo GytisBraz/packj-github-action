@@ -19,7 +19,7 @@ jobs:
           printf "mock==5.0.1" > requirements3.txt
 
       - name: Packj Security Audit
-        uses: GytisBraz/packj-github-action@feature/intermediate_files
+        uses: GytisBraz/packj-github-action@main
         env:
           PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION: python
         with:
