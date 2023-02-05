@@ -8,6 +8,7 @@ on:
 
 jobs:
   test:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,10 +20,10 @@ jobs:
           printf "mock==5.0.1" > requirements3.txt
 
       - name: Packj Security Audit
-        uses: GytisBraz/packj-github-action@feature/intermediate_files
+        uses: GytisBraz/packj-github-action@main
         env:
           PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION: python
         with:
-          DEPENDENCY_FILES: pypi:requirements.txt
+          DEPENDENCY_FILES: pypi:requirements2.txt,pypi:requirements3.txt
           REPO_TOKEN: ${{ secrets.TOKEN }}
-          # FILES_EXIST: false
+          FILES_EXIST: false
